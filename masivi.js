@@ -99,7 +99,7 @@ class Human {
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
-        this.tripList = tripList;
+        this.tripList = tripList || [];
     }
     get fullName(){
         return this.firstName + " " + this.lastName + " " + this.dateOfBirth;
@@ -113,3 +113,18 @@ let human = new Human('walter', 'smith', '12.12.1990', 'male', tripList);
 console.log(human.fullName);
 human.fullName = 'Bred Pitt';
 console.log(human.fullName);
+
+// izveidot klasi female, kas manto Human
+class Female extends Human {
+    constructor(firstName, lastName,dateOfBirth) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = 'female';
+    }
+}
+let girl = new Female('Eliza', 'Teilor', '02.02.2000')
+console.log(girl.fullName);
+
+// react izmantošana
