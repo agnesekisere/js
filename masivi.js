@@ -62,6 +62,54 @@ arrr2.push('Skoda');
 console.log(arrr2.reverse().sort())
 
 // 10. izveidot objektu (firstname, lastname, dateofbirth, gender, tripplaces)
-var person = {firstName:"John", lastName:"Snow", dateOfBirth:""}
-
+var person = {
+    firstName:"John", 
+    lastName:"Snow", 
+    dateOfBirth:"24.12.1996", 
+    gender:"male", 
+    tripList: ['Latvia', 'Spain', 'Italy'], 
+    // fullName : function () {
+    //     return this.firstName + " " + this.lastName + " " + this.dateOfBirth;
+    // },
+    changeName : function (name) {
+        this.firstName=name;
+    },
+    addTrip : function (trip) {
+        this.tripList.push(trip);
+    },
+    printTrips : function () {
+        return this.tripList;
+    }
+} 
 // 11. pievienot objektam metodi, kas izvada info  par objektu (firstname, lastname, dateofbirth)
+// console.log(person);
+// console.log(person.fullName());
+// person.changeName('Walter');
+// console.log(person.fullName());
+
+// Pievienot jaunu ceļojuma vietu
+person.addTrip('Lithuania');
+// console.log(person.tripList);
+console.log(person.printTrips());
+
+// Izveidot klasi
+class Human {
+    constructor(firstName, lastName,dateOfBirth, gender, tripList) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.tripList = tripList;
+    }
+    get fullName(){
+        return this.firstName + " " + this.lastName + " " + this.dateOfBirth;
+    }
+    set fullName(name){
+        [this.firstName, this.lastName] = name.split(' ');
+    }
+}
+let tripList = ['Latvia', 'Spain', 'Italy'];
+let human = new Human('walter', 'smith', '12.12.1990', 'male', tripList);
+console.log(human.fullName);
+human.fullName = 'Bred Pitt';
+console.log(human.fullName);
