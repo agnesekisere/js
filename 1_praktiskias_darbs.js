@@ -13,7 +13,7 @@ function reverseString(str) {
     return joinArray; // ""
 }
 reverseString('This is very cool');
-console.log(reverseString('This is very cool'));
+console.log('1.uzd. ', reverseString('This is very cool'));
 
 // 2. Izveidot funkciju, kas salīdzina divus skaitļus un atgriež patiess, ja kāds no
 // dotajiem skaitļiem vai to summa ir 5. Pretējā gadījumā atgriež nepatiess.
@@ -34,7 +34,7 @@ function compareNumbers() {
       }
 }
 compareNumbers(num1, num2)
-console.log(rez);
+console.log('2.uzd. ', rez);
 
 // 3. Izveidot funkciju, kas saskaita dotos masīva elementus un atgriež summu
 var numbers = [15.5, 2.3, 1.1, 4.7];
@@ -46,7 +46,7 @@ function arrSum() {
     }
 }
 arrSum(numbers);
-console.log(sum);
+console.log('3.uzd. ', sum);
 
 // 4. Izveidot funkciju, kas saskaita masīva ar trim elementiem summu un atgriež to.
 // Funkcijā ieviest pārbaudi, vai masīvā ir doti elementi, vai tie ir skaitļi un vai ir doti
@@ -60,7 +60,8 @@ function arrSum() {
     }
 }
 arrSum(numbers);
-console.log(sum);
+console.log('4.1.uzd. ', sum);
+
 
 function threeElements() {
     if (numbers.length == 3 ) {
@@ -71,4 +72,133 @@ function threeElements() {
       }
 }
 threeElements(numbers);
-console.log(len)
+console.log('4.3.uzd. ', len)
+
+// 5. Izveidot funkciju, kura atgriež divu doto veselo skaitļu summu, ja tie nesakrīt vai
+// trīskāršo skaitļu summu, ja tie sakrīt.
+a=5;
+b=2;
+ssum=0;
+function veseloSum() {
+  if(a==b){
+    ssum=3*(a+b);
+  }else{
+    ssum=a+b;
+  }
+}
+veseloSum(a,b);
+console.log('5.uzd. ', ssum);
+
+// 6. Izveidot funkciju, kas saņem lietotāja vārdu un paroli. Ja kāds no mainīgajiem
+// nav ievadīts vai paroles garums ir mazāks par 12 simboliem, izvada atbilstošo
+// kļūdas paziņojumu.
+var name = 'lietotajas';
+var passw = 'parole'
+function login() {
+  if(passw.length<12){
+    return 'Paroles garumam jabut vismaz 12 simboliem'
+  }
+  else if(name.length==0) {
+    return 'Nav ievadits lietotaja vards'
+  }
+  else if(passw.length==0) {
+    return 'Nav ievadita parole'
+  }
+  else{
+    return 'viss ok'
+  }
+}
+console.log('6.uzd. ', login());
+
+// 7. Izveidot funkciju, kas no dotā masīva izņem pirmo un pēdējo elementu un
+// atgriež jaunu masīvu. Jaunā masīva elementu skaits var būt viens vai divi.
+// Funkcija ieviest nepieciešamās pārbaudes un paziņojumu izvadi.
+var fruits = ['Mango', 'Banana', 'Apple', 'Kivi'];
+function firstAndLast() {
+  fruits.pop();
+  fruits.shift();
+  // return fruits;
+  if(fruits.length>2){
+    return 'Masiva vairāk kā 2 elementi'
+  }
+  else if (fruits.length<1) {
+    return 'Masiva nav elementu'
+  }
+  else{
+    return fruits;
+  }
+}
+console.log('7.uzd. ', firstAndLast());
+
+// 8. Izveidot objektu Raksts ar šādām īpašībām: virsraksts, autors, saturs, patik.
+// Īpašībai patīk jābūt masīvam, kurā iespējams pievienot un dzēst elementus.
+// Izveidot metodes: lasīšanas ilgums, pieskirtPatik un nonemtPatik.
+// Lasīšanas ilgums jāaprēķina izdalot satura daļas simbolu skaitu ar 1500 (vidējais
+// simbolu skaits minūtē) un rezultātu izvadīt minūtēs un sekundēs.
+// Metode pieskirtPatik pievieno unikālu id masīvā patik.
+// Metode nonemtPatik izdzēš no masīva patik elementu ar unikālu id.
+var raksts = {
+  virsraksts:"GoT", 
+  autors:"John Snow", 
+  saturs:"Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one. Winter will be back at April. This will be the coldest one.",
+  patik: ["Janis", "Toms", "Anna"],
+  lasisanasIlgums: function() {
+    var min = raksts.saturs.length/25; // 1500 : 60
+    var minutes = Math.floor(min / 60);
+    var seconds = (min/60 - minutes) * 60;
+    return 'Lasīšanas ilgums: ' + minutes + 'min. '  + Math.round(seconds) + 'sec.';
+  },
+  pieskirtPatik: function(like) {
+    this.patik.push(like);
+  },
+  nonemtPatik: function() {
+    for( var i = raksts.patik.length-1; i--;){
+      if ( raksts.patik[i] === 'Anna') raksts.patik.splice(i, 1);
+      }
+  },
+  printPatik: function() {
+    return this.patik;
+  }
+}
+console.log('8.uzd. ', raksts);
+console.log('8.uzd.', raksts.lasisanasIlgums());
+raksts.pieskirtPatik('Inga');
+console.log('8.uzd. Piešķirt patik: ', raksts.printPatik());
+raksts.nonemtPatik();
+console.log('8.uzd. Noņemt patik ', raksts.printPatik());
+
+
+// 9. Izveidot klasi Uznemums ar īpašībām: nosaukums, forma (sia, as, mu, bo),
+// registrācijas dati (numurs, datums), juridiska adrese (iela, numurs, pilsēta,
+//   novads, valsts, pasta indekss), tālrunis, nodokļu parādi, datu atjaunošanas
+//   datums.
+//   Pievienot tai get/set metodes. Get Paradi metode izvada datu atjaunošanas
+//   datumu un nodokļu parādu. Set Paradi ļauj nomainīt nodokļu parādu lielumu un
+//   datu atjaunošanas datumu.
+class Uznemums{
+  constructor(nosaukums, forma, regDat, jurAdr, tel, nodPar, atjDat){
+    this.nosaukums=nosaukums, 
+    this.forma=forma,
+    this.regDat=regDat,
+    this.jurAdr=jurAdr, 
+    this.tel=tel, 
+    this.nodPar=nodPar, 
+    this.atjDat=atjDat
+  }
+}
+console.log('9.uzd. ', Uznemums);
+
+
+//   10. Izveidot klasi SIA, kas manto klases Uzņēmums īpašības un metodes. Iestātīt
+//   īpašībai forma vērtību ‘sia’ un pievienot papildus īpašības: pamatkapitāls,
+//   dibinātājs (masīvs ar objektiem (vārds, uzvārds, personas kods). Pievienot
+//   metodi pievienotDibinataju un dibinatajuSaraksts, kura izvada uzņēmuma
+//   nosaukumu, reģistrācijas datumu un dibinātāju datus.
+class SIA extends Uznemums{
+  constructor(nosaukums, regDat, jurAdr, tel, nodPar, atjDat, pamatkap, dibinatajs){
+    super(nosaukums, 'sia', regDat, jurAdr, tel, nodPar, atjDat);
+    this.pamatkap=pamatkap, 
+    this.dibinatajs=dibinatajs
+  }
+}
+console.log('10.uzd. ', SIA);
