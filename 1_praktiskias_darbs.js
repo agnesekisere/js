@@ -60,9 +60,9 @@ function arrSum() {
     }
 }
 arrSum(numbers);
-console.log('4.1.uzd. ', sum);
+console.log('4.uzd. ', sum);
 
-
+// vai ir doti 3 elementi
 function threeElements() {
     if (numbers.length == 3 ) {
         len = "True. 3 elementi";
@@ -72,7 +72,7 @@ function threeElements() {
       }
 }
 threeElements(numbers);
-console.log('4.3.uzd. ', len)
+console.log('4.uzd. ', len)
 
 // 5. Izveidot funkciju, kura atgriež divu doto veselo skaitļu summu, ja tie nesakrīt vai
 // trīskāršo skaitļu summu, ja tie sakrīt.
@@ -113,7 +113,7 @@ console.log('6.uzd. ', login());
 // 7. Izveidot funkciju, kas no dotā masīva izņem pirmo un pēdējo elementu un
 // atgriež jaunu masīvu. Jaunā masīva elementu skaits var būt viens vai divi.
 // Funkcija ieviest nepieciešamās pārbaudes un paziņojumu izvadi.
-var fruits = ['Mango', 'Banana', 'Apple', 'Kivi'];
+var fruits = ['Mango', 'Banana', 'Apple', 'Kiwi'];
 function firstAndLast() {
   fruits.pop();
   fruits.shift();
@@ -144,8 +144,8 @@ var raksts = {
   patik: ["Janis", "Toms", "Anna"],
   lasisanasIlgums: function() {
     var min = raksts.saturs.length/25; // 1500 : 60
-    var minutes = Math.floor(min / 60);
-    var seconds = (min/60 - minutes) * 60;
+    var minutes = Math.floor(min / 60); // parverš skaisti minutes
+    var seconds = (min/60 - minutes) * 60; // apreķina atlikumu no minutem un parverš to sekundes
     return 'Lasīšanas ilgums: ' + minutes + 'min. '  + Math.round(seconds) + 'sec.';
   },
   pieskirtPatik: function(like) {
@@ -160,7 +160,7 @@ var raksts = {
     return this.patik;
   }
 }
-console.log('8.uzd. ', raksts);
+// console.log('8.uzd. ', raksts);
 console.log('8.uzd.', raksts.lasisanasIlgums());
 raksts.pieskirtPatik('Inga');
 console.log('8.uzd. Piešķirt patik: ', raksts.printPatik());
@@ -185,8 +185,19 @@ class Uznemums{
     this.nodPar=nodPar, 
     this.atjDat=atjDat
   }
+  set Paradi(nodPar) {
+    this.nodPar='250,00';
+    this.atjDat='12.03.2019';
+  }
+  get Paradi() {
+      return this.nodPar+ " " + this.atjDat;
+  }
 }
-console.log('9.uzd. ', Uznemums);
+let firma = new Uznemums('Pucins', 'sia', 'LV36435237 28.07.2018', 'Rīgas iela - 55, Jelgava, Latvija, LV-3004', '+37128786923', '500,00', '11.03.2019');
+// console.log('9.uzd. ',firma);
+console.log('9.uzd. ',firma.Paradi);
+firma.Paradi='250,00', '12.03.2019';
+console.log('9.uzd. ',firma.Paradi);
 
 
 //   10. Izveidot klasi SIA, kas manto klases Uzņēmums īpašības un metodes. Iestātīt
@@ -200,5 +211,18 @@ class SIA extends Uznemums{
     this.pamatkap=pamatkap, 
     this.dibinatajs=dibinatajs
   }
+  pievienotDibinataju(dibinatajs) {
+    this.dibinatajs=dibinatajs;
+  }
+  dibinatajuSaraksts() {
+    return this.nosaukums+ " " + this.regDat+ " " + this.dibinatajs;
+  }
+  printDibinatajs() {
+    return this.dibinatajs;
+  }
 }
-console.log('10.uzd. ', SIA);
+let sia = new SIA('Pucins', 'LV36435237 28.07.2018', 'Rīgas iela - 55, Jelgava, Latvija, LV-3004', '+37128786923', '500,00', '11.03.2019', '1,00', 'Toms Kalnins 130489-65432');
+// console.log('10.uzd. ', SIA);
+console.log('10.uzd. ', sia.dibinatajuSaraksts());
+sia.pievienotDibinataju('Janis Berzins 121290-12345');
+console.log('10.uzd. ', sia.printDibinatajs());
