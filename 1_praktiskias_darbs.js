@@ -51,7 +51,7 @@ console.log('3.uzd. ', sum);
 // 4. Izveidot funkciju, kas saskaita masīva ar trim elementiem summu un atgriež to.
 // Funkcijā ieviest pārbaudi, vai masīvā ir doti elementi, vai tie ir skaitļi un vai ir doti
 // trīs elementi.
-var numbers = [5, 7, 9];
+var numbers = [5, 'jjj', 9];
 var sum = 0;
 function arrSum() {
     for (var i = 0; i < numbers.length; i++) 
@@ -61,6 +61,16 @@ function arrSum() {
 }
 arrSum(numbers);
 console.log('4.uzd. ', sum);
+
+// vai ir doti skaitli
+text = '';
+function ttype() {
+  for(var j=0; j<numbers.length; j++){
+    text +=' šis ir ' + typeof(numbers[j]) + '||||';
+  }
+}
+ttype(numbers);
+console.log('4.uzd. ', text);
 
 // vai ir doti 3 elementi
 function threeElements() {
@@ -77,32 +87,30 @@ console.log('4.uzd. ', len)
 // 5. Izveidot funkciju, kura atgriež divu doto veselo skaitļu summu, ja tie nesakrīt vai
 // trīskāršo skaitļu summu, ja tie sakrīt.
 a=5;
-b=2;
-ssum=0;
+b=5;
 function veseloSum() {
   if(a==b){
-    ssum=3*(a+b);
+   return 3*(a+b);
   }else{
-    ssum=a+b;
+    return a+b;
   }
 }
-veseloSum(a,b);
-console.log('5.uzd. ', ssum);
+console.log('5.uzd. ', veseloSum(a,b));
 
 // 6. Izveidot funkciju, kas saņem lietotāja vārdu un paroli. Ja kāds no mainīgajiem
 // nav ievadīts vai paroles garums ir mazāks par 12 simboliem, izvada atbilstošo
 // kļūdas paziņojumu.
-var name = 'lietotajas';
-var passw = 'parole'
+var name = '';
+var passw = 'password'
 function login() {
-  if(passw.length<12){
-    return 'Paroles garumam jabut vismaz 12 simboliem'
-  }
-  else if(name.length==0) {
+  if(name.length==0) {
     return 'Nav ievadits lietotaja vards'
   }
   else if(passw.length==0) {
     return 'Nav ievadita parole'
+  }
+  else if(passw.length<12){
+    return 'Paroles garumam jabut vismaz 12 simboliem'
   }
   else{
     return 'viss ok'
@@ -115,7 +123,7 @@ console.log('6.uzd. ', login());
 // Funkcija ieviest nepieciešamās pārbaudes un paziņojumu izvadi.
 var fruits = ['Mango', 'Banana', 'Apple', 'Kiwi'];
 function firstAndLast() {
-  fruits.pop();
+  fruits.pop();   // ja šīs metodes tiks kaut kur pārvietotas, tad netiks izpildīti uzdevuma nosacījumi!!!
   fruits.shift();
   // return fruits;
   if(fruits.length>2){
@@ -124,11 +132,18 @@ function firstAndLast() {
   else if (fruits.length<1) {
     return 'Masiva nav elementu'
   }
-  else{
+  else if (fruits.length==1) {
+    return 'Masiva 1 elements';
+  }
+  else if (fruits.length==2) {
+    return 'Masiva 2 elementi';
+  }
+  else {
     return fruits;
   }
 }
 console.log('7.uzd. ', firstAndLast());
+console.log('7.uzd. ', fruits);
 
 // 8. Izveidot objektu Raksts ar šādām īpašībām: virsraksts, autors, saturs, patik.
 // Īpašībai patīk jābūt masīvam, kurā iespējams pievienot un dzēst elementus.
@@ -179,8 +194,8 @@ class Uznemums{
   constructor(nosaukums, forma, regDat, jurAdr, tel, nodPar, atjDat){
     this.nosaukums=nosaukums, 
     this.forma=forma,
-    this.regDat=regDat,
-    this.jurAdr=jurAdr, 
+    this.regDat=regDat || [],
+    this.jurAdr=jurAdr || [], 
     this.tel=tel, 
     this.nodPar=nodPar, 
     this.atjDat=atjDat
@@ -209,10 +224,10 @@ class SIA extends Uznemums{
   constructor(nosaukums, regDat, jurAdr, tel, nodPar, atjDat, pamatkap, dibinatajs){
     super(nosaukums, 'sia', regDat, jurAdr, tel, nodPar, atjDat);
     this.pamatkap=pamatkap, 
-    this.dibinatajs=dibinatajs
+    this.dibinatajs=dibinatajs || []
   }
   pievienotDibinataju(dibinatajs) {
-    this.dibinatajs=dibinatajs;
+    this.dibinatajs=dibinatajs || [];
   }
   dibinatajuSaraksts() {
     return this.nosaukums+ " " + this.regDat+ " " + this.dibinatajs;
